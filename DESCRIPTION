@@ -1,8 +1,8 @@
 Package: reghelper
 Type: Package
 Title: Helper Functions for Regression Analysis
-Version: 1.0.0
-Date: 2020-09-04
+Version: 1.0.1
+Date: 2020-11-06
 Authors@R: person("Jeffrey", "Hughes", email="jeff.hughes@gmail.com",
     role=c("aut", "cre"))
 Description: A set of functions used to automate commonly used methods in
@@ -16,10 +16,11 @@ Depends: R (>= 3.1.0)
 LazyData: true
 Imports: ggplot2 (>= 1.0.0), stats, nlme, lme4, utils
 Suggests: testthat (>= 0.8.1)
-RoxygenNote: 7.1.0
+Encoding: UTF-8
+RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-09-07 19:15:57 UTC; jeff
+Packaged: 2020-11-08 21:56:19 UTC; jeff
 Author: Jeffrey Hughes [aut, cre]
 Maintainer: Jeffrey Hughes <jeff.hughes@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-09-07 22:50:02 UTC
+Date/Publication: 2020-11-08 22:20:02 UTC
