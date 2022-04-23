@@ -7,7 +7,7 @@ commonly used methods in regression analysis. This includes plotting
 interactions, calculating simple slopes, calculating standardized
 coefficients, etc.
 
-Version 1.1.0 has been released. The most recent stable release is
+Version 1.1.1 has been released. The most recent stable release is
 available on CRAN, and can be installed like so:
 
 ``` r
@@ -18,7 +18,7 @@ You can also install the stable release from Github:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("jeff-hughes/reghelper@v1.0.2")
+devtools::install_github("jeff-hughes/reghelper@v1.1.1")
 ```
 
 If you would like to install the latest development version, you can do
