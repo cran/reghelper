@@ -97,7 +97,7 @@ beta.glm <- function(model, x=TRUE, y=FALSE, skip=NULL, ...) {
         data <- model$model
     } else if (inherits(model, 'lme')) {
         data <- model$data
-    } else if (inherits(model, 'lmerMod')) {
+    } else if (inherits(model, c('lmerMod', 'glmerMod'))) {
         data <- model@frame
     }
     
