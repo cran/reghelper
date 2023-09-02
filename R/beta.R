@@ -43,14 +43,14 @@ beta.lm <- function(model, x=TRUE, y=TRUE, skip=NULL, ...) {
     formula <- format(formula(model))
     lhs <- attr(terms(model), 'response')  # index of criterion variable(s)
     if (x == FALSE) {
-        vars <- vars[lhs]  # get only variables on left-hand side
+        skip <- c(skip, vars[-lhs])  # skip variables on right-hand side
     }
     if (y == FALSE) {
-        vars <- vars[-lhs]  # get only variables on right-hand side
+        skip <- c(skip, vars[lhs])  # skip variables on left-hand side
     }
     
     # cover special case, where all variables are skipped
-    if (length(vars) == 0) {
+    if (length(skip) == length(vars)) {
         return(summary(model))
     }
     
@@ -93,12 +93,17 @@ beta.glm <- function(model, x=TRUE, y=FALSE, skip=NULL, ...) {
 #' @return Returns a list with new formula and new data.
 #' @noRd
 .create_formula <- function(model, vars, skip) {
-    if(inherits(model, c('lm', 'aov', 'glm'))) {
-        data <- model$model
-    } else if (inherits(model, 'lme')) {
-        data <- model$data
+    if (inherits(model, c('glm', 'lme'))) {
+        if (is.environment(model$data)) {
+            # we need to extract the data from the captured environment
+            data <- as.data.frame(mget(vars, envir=model$data))
+        } else {
+            data <- model$data
+        }
     } else if (inherits(model, 'lmerMod')) {
         data <- model@frame
+    } else if (inherits(model, c('lm', 'aov'))) {
+        data <- model$model
     }
     
     formula <- format(formula(model))

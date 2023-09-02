@@ -20,7 +20,7 @@
 #'   significance for an interaction.\cr
 #' }
 #'
-#' @docType package
-#' @name reghelper
+#' @keywords internal
 #' @import stats
-NULL
+#' @importFrom rlang .data
+"_PACKAGE"
